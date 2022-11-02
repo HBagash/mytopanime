@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css">
+	<style>
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Main Content
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+        
+        /*About Us Title*/
+		h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 40px;
+            color: var(--text);
+        }
+		
+        /*About Us Message*/
+		main div p {
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--text);
+        }
+
+        /*About Us container*/
+		main div {
+			margin-left: auto;
+			margin-right: auto;
+			width: 500px;
+			padding-top: 0px;
+			padding-bottom: 10px;
+		}
+	</style>
+    
+	<!--Website Title-->
+    <title>MyTopAnime - About Us</title>
+</head>
+<body>
+    <!--Header-->
+    <header id="header">
+        <!--Icon-->
+        <a href="index.html" id="headerIcon">MyTopAnime.net</a>
+
+        <!--Buttons-->
+        <div id="headerDiv">
+            <ul id="navList">
+                <li><a href="Introduction.html" class="liStyle1" draggable="false">Introduction</a></li>
+                <li><a href="Trailers.html" class="liStyle1" draggable="false">Trailers</a></li>
+                <li><a href="History.html" class="liStyle1" draggable="false">History</a></li>
+                <li><a href="Games.html" class="liStyle1" draggable="false">Games</a></li>
+                <li><a href="About Us.html" class="aboutUsLink" draggable="false"><button draggable="false" class="aboutUsButton">About Us</button></a></li>
+                <li><a href="Contact Us.html" class="contactUsLink" draggable="false"><button draggable="false" class="contactUsButton">Contact Us</button></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!--Banner-->
+    <div class="bannerDiv">
+        <img src="Assets/Main panel.png" id="banner" draggable="false">
+        <div id="bannerGradientLine"></div>
+        <img src="Assets/MyTopAnime.png" id="bannerTitle" draggable="false">
+        <p id="bannerCatchphrase">The new promising anime platform</p>
+    </div>
+
+    <!--Page Content-->
+    <main id="mainHome">
+		<div>
+            <!--Title-->
+			<h1>About Us</h1>
+            <!--About us message-->
+			<p>MyTopAnime is a place for true Anime enthusiasts to share their experiences and thoughts with the world. We’re a community of people who are passionate about Anime culture, food, and travel. Whether you’re from Japan or not, if you have an interest in Anime then we want to hear from you!</p>
+            <!--Animated GIF-->
+			<img src="Assets/Luffy.gif" width="100%">
+		</div>
+    </main>
+    
+    <!--Footer-->
+    <footer>
+        <!--Accessability-->
+        <div id="accessabilityDiv">
+            <label for="lightModeCheckbox" id="lightModeLabel"> Light Mode
+                <input type="checkbox" id="lightModeCheckbox" onchange="lightMode()">
+            </label>
+        </div>
+
+        <!--Copyright-->
+        <p>Ⓒ2021 MyTopAnime</p>
+
+        <!--Socials-->
+        <div id="socialMediaDiv">
+            <a href="https://en-gb.facebook.com/Anitrendz/"><img src="Assets/FacebookLogo.png" alt="" draggable="false"></a>
+            <a href="https://www.instagram.com/animes/?hl=en"><img src="Assets/Instagram.png" alt="" draggable="false"></a>
+            <a href="https://twitter.com/alltheanime?lang=en"><img id="twitterIcon" src="Assets/Twitter.png" alt="" draggable="false"></a>
+        </div>
+    </footer>
+
+    <!--JavaScript-->
+    <script src="index.js"></script>
+</body>
+</html>

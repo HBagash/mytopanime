@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css">
+	<style>
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Main Content
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+		#mainHome {
+			display: flex;
+			justify-content: space-between;
+			height: auto;
+			width: auto;
+			margin-left: auto;
+			margin-right: auto;
+			width: 1316px;
+			margin-top: 30px;
+		}
+
+		#mainLeft {
+			width: 905px;
+		}
+
+		#sideHome {
+			width: 330px;
+		}
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Introduction
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        .introductionDiv {
+            width: 100%;
+            background-color: var(--divBackground);
+            border-radius: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 1px;
+            padding-bottom: 25px;
+            box-shadow: 0 1.68px 3.36px hsla(0,0%,0%,50%);
+        }
+		
+		/*Heading of introdction*/
+        #introductionHeading {
+            color: var(--text);
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+        }
+		
+		/*Title class for introduction titles*/
+        .introductionTitle {
+            color: var(--text);
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+        }
+
+        .introductionParagraph {
+            color: var(--text);
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+        }
+		
+		/*Introduction Image*/
+        .introductionImg {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 1.68px 3.36px hsla(0,0%,0%,50%);
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Top Anime
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+		
+		/*Container for Top rated animes of all time*/
+		.topAnimeDiv {
+			display: flex;
+			flex-direction: column;
+			background-color: var(--titleBackground);
+			width: 100%;
+			border-radius: 10px;
+			box-shadow: 0 1.68px 3.36px hsla(0,0%,0%,50%);
+			overflow: hidden;
+		}
+		
+		/*Title for Top Anime container*/
+		#topAnimeHeading {
+			font-family: 'Sarabun', sans-serif;
+			text-align: center;
+			color: var(--text);
+		}
+
+		.animeSidebarDiv {
+			height: 100px;
+			background-color: var(--divBackground);
+		}
+		
+		/*Image class for anime cover image*/
+		.sideAnimeImageDiv {
+			height: 100%;
+			width: 50px;
+			padding-left: 16.5px;
+			padding-top: 16.5px;
+			transition: transform .2s;
+		}
+
+		.sideAnimeImage {
+			max-height: 100%;
+			max-width: 100%;
+			transition: transform .2s;
+		}.sideAnimeImage:hover {
+			transform: scale(1.6);
+		}
+		
+		/*Title of the anime*/
+		.animeSidebarTitle {
+			position: relative;
+			width: 200px;
+			bottom: 120px;
+			left: 90px;
+			font-family: 'Sarabun', sans-serif;
+			font-weight: 700;
+			color: var(--text);
+		}
+		
+		/*Rating of the anime*/
+        .animeSidebarRating {
+			position: relative;
+			width: 200px;
+			bottom: 130px;
+			left: 90px;
+			font-family: 'Sarabun', sans-serif;
+			font-weight: 700;
+			color: var(--text);
+		}
+	</style>
+    
+	<!--Website Title-->
+    <title>MyTopAnime - Introduction</title>
+</head>
+<body>
+    <!--Header-->
+    <header id="header">
+        <!--Icon-->
+        <a href="index.html" id="headerIcon">MyTopAnime.net</a>
+
+        <!--Buttons-->
+        <div id="headerDiv">
+            <ul id="navList">
+                <li><a href="Introduction.html" class="liStyle1" draggable="false">Introduction</a></li>
+                <li><a href="Trailers.html" class="liStyle1" draggable="false">Trailers</a></li>
+                <li><a href="History.html" class="liStyle1" draggable="false">History</a></li>
+                <li><a href="Games.html" class="liStyle1" draggable="false">Games</a></li>
+                <li><a href="About Us.html" class="aboutUsLink" draggable="false"><button draggable="false" class="aboutUsButton">About Us</button></a></li>
+                <li><a href="Contact Us.html" class="contactUsLink" draggable="false"><button draggable="false" class="contactUsButton">Contact Us</button></a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <!--Banner-->
+    <div class="bannerDiv">
+        <img src="Assets/Main panel.png" id="banner" draggable="false">
+        <div id="bannerGradientLine"></div>
+        <img src="Assets/MyTopAnime.png" id="bannerTitle" draggable="false">
+        <p id="bannerCatchphrase">The new promising anime platform</p>
+    </div>
+
+    <!--Page Content-->
+    <main id="mainHome">
+		<!--Left Box-->
+        <div id="mainLeft">
+			<!--Introduction Container-->
+            <div class="introductionDiv">
+                <h1 id="introductionHeading">Introduction to Anime</h1>
+                <img src="Assets/Kimetsu-no-YaibaDemon-Slayer.jpg" alt="" class="introductionImg">
+                <p class="introductionParagraph">
+                    The word anime — pronounced "ah-knee-may" — is an abbreviation of the word animation. In Japan, the word is used to refer to all animation. However, outside of Japan, it has become the catch-all term for animation from Japan.
+                    <br>
+                    <br>
+                    For decades, anime was produced by and for Japan — a local product, with a distinct look-and-feel to not just the artwork but the storytelling, the themes, and the concepts. Over the last forty years, it has become an international phenomenon, attracting millions of fans and being translated into many languages. A whole generation of viewers in the West has grown up with it and are now passing it on to their own children.
+                    <br>
+                    <br>
+                    Because all things anime tend to be lumped together, it's tempting to think of anime as a genre. It isn't, at least no more than animation itself is a genre, but rather a description of how the material is produced. Anime shows, like books or movies, fall into any number of existing genres: comedy, drama, sci-fi, action-adventure, horror and so on.
+                    <br>
+                    <br>
+                </p>
+
+                <h2 class="introductionTitle">What Makes Anime So Special?</h2>
+                <p class="introductionParagraph">
+                    Most anime fans can sum this up in two words: "It's different." Anime is as unlike most American cartoons like "Batman" and "Spider-Man" are different from the comics that run in daily papers. These differences show up in many ways including the artwork storytelling, breadth of material and even cultural nuances exhibited by the characters.
+                    <br>
+                    <br>
+                    Anime art styles range from the flamboyant and outlandish in shows like "Samurai Champloo" and " FLCL" to the simple and direct in shows like "Azumanga Daioh!." That said, even shows with more "basic" artwork can still be visually striking. Anime has this way of making everything look fresh and new.
+                    <br>
+                    <br>
+                    It doesn't shy away from epic storylines, either, which often run for dozens (sometimes hundreds) of episodes. The best anime, though, no matter what their length, all demand great emotional involvement from the viewer. 
+                    <br>
+                    <br>
+                    The sheer range of anime shows out there means a fan of most any other kind of TV or movie can find an anime series that mirrors its style. For fans of hard science fiction, the show "Planetes" would be perfect for you; romantic comedy fans will love "Fruits Basket" while crimefighting lovers will enjoy "Ghost in the Shell." There are even adaptations of classical literature like "The Count of Monte Cristo."
+                    <br>
+                    <br>
+                    Not only that, fans of anime also get an intimate look into Japan's history, language and worldview, woven into a great deal of anime on many levels. Some shows are takeoffs on Japanese history like "Sengoku Basara" or raid Japanese mythology for story ideas like "Hakkenden" or "Hell Girl." Even shows that are outwardly non-Japanese in their presentation like "Claymore" and "Monster" have tinges of a Japanese sensibility to them.
+                    <br>
+                    <br>
+                    What's most striking is how anime's impact is coming full circle. Some recent American cartoon productions, like "Avatar: The Last Airbender," are openly inspired by anime itself, and live-action English-language versions of anime titles are starting to come into production more frequently. 
+                    <br>
+                    <br>
+                </p>
+
+                <h2 class="introductionTitle">What Makes Anime So Special?</h2>
+                <p class="introductionParagraph">
+                    Most anime fans can sum this up in two words: "It's different." Anime is as unlike most American cartoons like "Batman" and "Spider-Man" are different from the comics that run in daily papers. These differences show up in many ways including the artwork storytelling, breadth of material and even cultural nuances exhibited by the characters.
+                    <br>
+                    <br>
+                    Anime art styles range from the flamboyant and outlandish in shows like "Samurai Champloo" and " FLCL" to the simple and direct in shows like "Azumanga Daioh!." That said, even shows with more "basic" artwork can still be visually striking. Anime has this way of making everything look fresh and new.
+                    <br>
+                    <br>
+                    It doesn't shy away from epic storylines, either, which often run for dozens (sometimes hundreds) of episodes. The best anime, though, no matter what their length, all demand great emotional involvement from the viewer. 
+                    <br>
+                    <br>
+                    The sheer range of anime shows out there means a fan of most any other kind of TV or movie can find an anime series that mirrors its style. For fans of hard science fiction, the show "Planetes" would be perfect for you; romantic comedy fans will love "Fruits Basket" while crimefighting lovers will enjoy "Ghost in the Shell." There are even adaptations of classical literature like "The Count of Monte Cristo."
+                    <br>
+                    <br>
+                    Not only that, fans of anime also get an intimate look into Japan's history, language and worldview, woven into a great deal of anime on many levels. Some shows are takeoffs on Japanese history like "Sengoku Basara" or raid Japanese mythology for story ideas like "Hakkenden" or "Hell Girl." Even shows that are outwardly non-Japanese in their presentation like "Claymore" and "Monster" have tinges of a Japanese sensibility to them.
+                    <br>
+                    <br>
+                    What's most striking is how anime's impact is coming full circle. Some recent American cartoon productions, like "Avatar: The Last Airbender," are openly inspired by anime itself, and live-action English-language versions of anime titles are starting to come into production more frequently. 
+                </p>
+            </div>
+        </div>
+		<!--Right Box-->
+        <div id="sideHome">
+			<!--Top Rated Anime Container-->
+            <div class="topAnimeDiv">
+                <h2 id="topAnimeHeading">Top Rated Animes</h2>
+
+                <!--Top Anime (Automatically generates here)-->
+                <div id="topAnimeList">
+                
+                </div>
+
+            </div>
+        </div>
+    </main>
+    
+    <!--Footer-->
+    <footer>
+        <!--Accessability-->
+        <div id="accessabilityDiv">
+            <label for="lightModeCheckbox" id="lightModeLabel"> Light Mode
+                <input type="checkbox" id="lightModeCheckbox" onchange="lightMode()">
+            </label>
+        </div>
+
+        <!--Copyright-->
+        <p>Ⓒ2021 MyTopAnime</p>
+
+        <!--Socials-->
+        <div id="socialMediaDiv">
+            <a href="https://en-gb.facebook.com/Anitrendz/"><img src="Assets/FacebookLogo.png" alt="" draggable="false"></a>
+            <a href="https://www.instagram.com/animes/?hl=en"><img src="Assets/Instagram.png" alt="" draggable="false"></a>
+            <a href="https://twitter.com/alltheanime?lang=en"><img id="twitterIcon" src="Assets/Twitter.png" alt="" draggable="false"></a>
+        </div>
+    </footer>
+
+    <!--JavaScript-->
+    <script src="index.js"></script>
+    <script>
+        //Variables to store JSON
+        let anime;
+        let animeObj;
+
+        //API Request
+        function topAnime(){
+            const request = new XMLHttpRequest();
+            const searchResults = document.getElementById("topAnimeDiv");
+
+            request.open('GET', 'https://api.jikan.moe/v3/top/anime');
+
+            request.onreadystatechange = function () {
+            if (this.readyState === 4) {
+				
+				//Turns the JSON from a string to an object
+                anime = JSON.parse(this.response);
+                animeObj = anime.top
+				
+				//Limits the results to 22
+                anime.top.length = 22;
+				
+				//Updates the page with the results
+                update(animeObj)
+            }
+            };
+            request.send();
+        }
+
+        //Template for the anime list
+        function animeTemplate(animedata) {
+            return `
+                <div class="animeSidebarDiv">
+                    <div class="sideAnimeImageDiv">
+                        <img src="${animedata.image_url}" alt="" class="sideAnimeImage">
+                    </div>
+                    <p class="animeSidebarTitle">${animedata.title}</p>
+                    <p class="animeSidebarRating">Rating: ${animedata.score}</p>
+                </div>
+
+            `
+        }
+
+        //Updates the page with the results it receives
+        function update(animedata){ 
+            document.getElementById("topAnimeList").innerHTML = `
+            ${animedata.map(animeTemplate).join("")}
+            `
+        }
+        //When the page loads, it requests the top rated anime list
+        topAnime()
+    </script>
+</body>
+</html>

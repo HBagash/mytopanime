@@ -1,0 +1,256 @@
+@charset "utf-8";
+
+body {
+    background-color: var(--background);
+    margin: 0;
+    padding: 0;
+    scrollbar-color: hsl(240, 75%, 77%) hsl(240, 3.5%, 21%);
+    transition: 0.2s;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @Variables
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+/*Default theme*/
+:root{
+    --background: #161618;
+    --titleBackground: #232325;
+    --text: white;
+    --divBackground: rgb(28, 28, 29);
+}
+
+/*Light Theme*/
+.lightMode {
+    --background: rgb(226, 226, 226);
+    --titleBackground: rgb(150, 150, 150);
+    --text: #292727;
+    --divBackground: rgb(211, 211, 211);
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @Fonts
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+@font-face {
+    font-family: Gang Of Three;
+    src: url(gangofthree.ttf);
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @Navigation Bar
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+#header {
+    position: relative;
+    width: 100%;
+    height: 42px;
+    background-color: #1c1c1d;
+    box-shadow: 0 1.68px 3.36px hsla(0,0%,0%,50%);
+    z-index: 100;
+    overflow: hidden;
+}
+
+#headerDiv {
+    position: relative;
+    float: right;
+    bottom: 12px;
+    margin-right: -6px;
+}
+
+/*Removes bullet points from the list*/
+#headerDiv ul {
+    list-style: none;
+    padding-right: 43px;
+}
+
+/*Header Links (Makes them line up in a row)*/
+#headerDiv ul li {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @Nav Rollovers
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+/*Navigation Links*/
+.liStyle1 {
+    color: #b0b0b0;
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 700;
+    text-decoration-line: none;
+    font-size: 22px;
+} .liStyle1:hover {/*Hovering over the Navigation button will change the colour to purple*/
+    border-color: hsl(240, 17%, 34%);
+    text-decoration-line: none;
+    color: hsl(240, 75%, 77%);
+    transition: all 160ms cubic-bezier(.38,.32,.25,1);
+    opacity: 60%;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @About Us and Contact Us
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+.aboutUsButton, .contactUsButton {
+    width: 130px;
+    height: 32px;
+    font-size: 0;
+    background: linear-gradient(45deg,hsl(240, 3%, 16%) calc(100% - 20px),hsla(240, 100%, 94%, 4%) 0) hsl(240, 3%, 16%);
+    border: 2px solid hsl(240, 3%, 16%);
+    border-radius: 3px;
+    font: normal 14px/26px "Sarabun", "Segoe UI", "Arial", "FontAwesome", sans-serif;
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 700;
+    color: white;
+    transition: inherit;
+} .aboutUsButton:hover, .contactUsButton:hover { /*About Us and Contact Us Text turns purple when you hover over it*/
+    border-color: hsl(240, 17%, 34%);
+    cursor:pointer;
+    color: hsl(240, 75%, 77%);
+    transition: all 160ms cubic-bezier(.38,.32,.25,1);
+}
+
+/*Removes underline for About Us*/
+.aboutUsLink,.contactUsLink{ 
+    text-decoration-line: none;
+    user-select: none;
+    transition: all 160ms cubic-bezier(.38,.32,.25,1);
+}
+
+.aboutUsButton:focus, .contactUsButton:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @Logo
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+#headerIcon {
+    position: absolute;
+	top: 9px;
+	left: 42px;
+	width: 44px;
+	height: 24px;
+	background: url(Assets/MTA-Icon.png) left 4px / auto 20px no-repeat;
+	color: hsl(0, 0%, 100%);
+	opacity: 0.94;
+	transition: all 160ms cubic-bezier(.38,.32,.25,1);
+    text-indent: -9999px;
+} #headerIcon:hover { /*Hover effect on the navigation*/
+    opacity: 0.6;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @Banner
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+.bannerDiv {
+    height: 518px;
+    width: 100%;
+    background-color: #232325;
+    overflow: hidden;
+}
+
+#banner {
+    width: 100%;
+    height: 100%;
+    min-height: 518px;
+    min-width: 1920px;
+    user-select: none;
+    box-shadow: inset 0 -12px 8px -8px hsla(0,0%,0%,50%);
+    overflow: hidden;
+}
+
+#bannerTitle {
+    position: relative;
+    max-width: 90%;
+    bottom: 75.5%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    user-select: none;
+}
+
+#bannerCatchphrase {
+    position: relative;
+    max-width: 100%;
+    color: white;
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 3px;
+    text-align: center;
+    user-select: none;
+    bottom: 86.5%;
+    display:hidden;
+}
+
+/*Line between the Main Content and Banner*/
+#bannerGradientLine {
+    position: relative;
+    height:2px;
+    width: 100%;
+    bottom: 6px;
+    background: linear-gradient(to right,hsla(240, 75%, 77%,1),hsla(240, 75%, 77%,.55)) hsl(240, 3%, 9%);
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @Footer
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+footer {
+    width: 100%;
+    height: 42px;
+    background-color: #232325;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 25px;
+}
+
+footer p {
+    color: #b0b0b0;
+    font-family: 'Sarabun', sans-serif;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @Accessability
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+#lightModeLabel {
+    font-family: 'Sarabun', sans-serif;
+    color: white;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+    @Socials
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+footer div img {
+    height: 30px;
+    width: 30px;
+    padding-left: 5px;
+    transition: all 160ms cubic-bezier(.38,.32,.25,1);
+} footer div img:hover {
+    transition: all 160ms cubic-bezier(.38,.32,.25,1);
+    transform: scale(1.2);
+    opacity: 0.6;
+}
+
+#socialMediaDiv {
+    user-select: none;
+    position: relative;
+    padding-left: 20px;
+    bottom: 3px;
+}
+
+#twitterIcon {
+    position: relative;
+    top: 4px;
+    right: 4px;
+    height: 38px;
+    width: 38px;
+}

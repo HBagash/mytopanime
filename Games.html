@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css">
+	<style>
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Main Content
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        #mainHome {
+            background-color: var(--background);
+            padding-right: 15px;
+            padding-left: 15px;
+			height: auto;
+			margin-left: auto;
+			margin-right: auto;
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Navigation Buttons
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        /*Navigation Header*/
+        #topDiv {
+            width: 100%;
+            height:60px;
+        }
+
+        /*Navigation Buttons Container*/
+        #animeGames {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 20px;
+            font-size: 28px;
+            color: var(--text);
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        /*Class for Navigation Buttons*/
+        .animeGamesItems {
+            padding-left: 15px;
+            padding-right: 15px;
+            user-select: none;
+			opacity: 1;
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+        } .animeGamesItems:hover { /*Text colour turns purple when you hover over a button*/
+            cursor:pointer;
+            color: hsl(240, 75%, 77%);
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+        }
+		
+		#codeVein {
+			transform: translate(0px, 20px);
+			transition: 1s;
+			opacity: 0;
+		}
+		#persona5 {
+			transform: translate(0px, 20px);
+			transition: 1s;
+			opacity: 0;
+		}
+		#steinsGate {
+			transform: translate(0px, 20px);
+			transition: 1s;
+			opacity: 0;
+		}
+		#scarletNexus {
+			transform: translate(0px, 20px);
+			transition: 1s;
+			opacity: 0;
+		}
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Game Gallery
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        #gamesDivContainer {
+            overflow: hidden;
+            width: 1690px;
+            height: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translate(-50px);
+            transition: 1s;
+            opacity: 0;
+        }
+
+        /*Flex Container containing all the Games (Uses JavaScript to scroll through the Game Gallery)*/
+        #gamesDiv {
+			display: flex;
+			justify-content: space-between;
+			align-content: center;
+			width: 6940px;
+            transform: translate(-10px);
+			transition: 1s;
+        }
+
+        /*Game Container used to hide other games that are not within frame*/
+        .gameContentContainer {
+            position: relative;
+            height: 700px;
+            overflow: hidden;
+            border-radius: 10px;
+            width: 1660px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gameDiv {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            z-index: 2;
+        }
+        
+        /*Game Cover Image Container*/
+        .gameGalleryDiv {
+            position: relative;
+            background-color: hsl(240, 3%, 16%);
+            height: 394px;
+            width: 700px;
+            float: right;
+            margin-right: 50px;
+            margin-top: 150px;
+            border: 3px solid white;
+            box-shadow: 4px 4px #000;
+        }
+
+        /*Video Background for Game Gallery*/
+        iframe {
+            position: relative;
+            object-fit: cover;
+            min-height: 1100px;
+            bottom: 880px;
+            z-index: 1;
+            pointer-events: none;
+            background-color: var(--background);
+        }
+        
+
+        /*Game Title*/
+        h1 {
+            position: relative;
+            color: white;
+            text-shadow: -5px 5px rgb(0 0 0 / 35%);
+            font-weight: 700;
+            letter-spacing: 1.85px;
+            font-size: 70px;
+            font-family: 'Sarabun', sans-serif;
+            margin-left: 50px;
+            margin-top: 20px;
+            z-index: 2;
+        }
+        
+        /*Game Synopsis Container*/
+		.gameSynopsisDiv {
+			position: relative;
+            height: 394px;
+            width: 700px;
+            float: left;
+            margin-left: 50px;
+            margin-top: 150px;
+            border: 3px solid white;
+            box-shadow: 4px 4px #000;
+			bottom: 137px;
+		}
+        
+        /*Game Synopsis Text*/
+		.gameSynopsis {
+			position: relative;
+            color: white;
+            text-shadow: -5px 5px rgb(0 0 0 / 35%);
+            font-weight: 700;
+            letter-spacing: 1.85px;
+            font-size: 20px;
+            font-family: 'Sarabun', sans-serif;
+			width: 670px;
+			padding-left: 20px;
+		}
+        
+        /*Cover Image Text*/
+		h2 {
+            position: relative;
+            color: white;
+            text-shadow: -5px 5px rgb(0 0 0 / 35%);
+            font-weight: 700;
+            letter-spacing: 1.85px;
+            font-size: 45px;
+            font-family: 'Sarabun', sans-serif;
+			bottom: 520px;
+        }
+
+        /*Persona 5 Header*/
+        #personaHeader {
+            position: relative;
+            bottom: 730px;
+            width: 1660px;
+            height: 200px;
+            opacity: 0.6;
+            z-index: 1;
+        }
+		
+        /*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Next and Previous (Buttons)
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*/
+
+		#next {
+			position: relative;
+			float: right;
+			height: 80px;
+			bottom: 400px;
+        }
+        /*Hover Effect to turn cursor to a pointer and make the button transparent*/
+        #next:hover {
+			transition: 0.3s;
+			opacity: 0.5;
+			cursor: pointer;	
+		}
+		
+		#previous {
+			position: relative;
+			float: left;
+			height: 80px;
+			bottom: 400px;
+			transform: rotate(180deg);
+			transition: 0.3s;
+        }
+        /*Hover Effect to turn cursor to a pointer and make the button transparent*/
+        #previous:hover {
+			transition: 0.3s;
+			opacity: 0.5;
+			cursor: pointer; 
+		}
+	</style>
+    
+	<!--Website Title-->
+    <title>MyTopAnime - Games</title>
+</head>
+<body>
+    <!--Header-->
+    <header id="header">
+        <!--Icon-->
+        <a href="index.html" id="headerIcon">MyTopAnime.net</a>
+
+        <!--Buttons-->
+        <div id="headerDiv">
+            <ul id="navList">
+                <li><a href="Introduction.html" class="liStyle1" draggable="false">Introduction</a></li>
+                <li><a href="Trailers.html" class="liStyle1" draggable="false">Trailers</a></li>
+                <li><a href="History.html" class="liStyle1" draggable="false">History</a></li>
+                <li><a href="Games.html" class="liStyle1" draggable="false">Games</a></li>
+                <li><a href="About Us.html" class="aboutUsLink" draggable="false"><button draggable="false" class="aboutUsButton">About Us</button></a></li>
+                <li><a href="Contact Us.html" class="contactUsLink" draggable="false"><button draggable="false" class="contactUsButton">Contact Us</button></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!--Banner-->
+    <div class="bannerDiv">
+        <img src="Assets/Main panel.png" id="banner" draggable="false">
+        <div id="bannerGradientLine"></div>
+        <img src="Assets/MyTopAnime.png" id="bannerTitle" draggable="false">
+        <p id="bannerCatchphrase">The new promising anime platform</p>
+    </div>
+
+    <!--Page Content-->
+    <main id="mainHome">
+
+        <!--Game Navigation Container-->
+        <div id="topDiv">
+            <!--Game Gallery Navigation Buttons (Container)-->
+            <div id="animeGames">
+                <p id="codeVein" class="animeGamesItems" onclick="codeVein()" onmouseover="onMouseOverGame(this.id)" onmouseout="onMouseExitGame(this.id)">Code Vein</p>
+                <p id="persona5" class="animeGamesItems" onclick="persona5()" onmouseover="onMouseOverGame(this.id)" onmouseout="onMouseExitGame(this.id)">Persona 5</p>
+                <p id="steinsGate" class="animeGamesItems" onclick="steinsGate()" onmouseover="onMouseOverGame(this.id)" onmouseout="onMouseExitGame(this.id)">Steins Gate</p>
+                <p id="scarletNexus" class="animeGamesItems" onclick="scarletNexus()" onmouseover="onMouseOverGame(this.id)" onmouseout="onMouseExitGame(this.id)">Scarlet Nexus</p>
+            </div>
+        </div>
+
+        <!--Flex Container (row)-->
+        <div id="gamesDivContainer">
+
+            <!--Code Vein Container (Game)-->
+            <div id="gamesDiv">
+                <div class="gameContentContainer">
+                    <div class="gameDiv">
+
+                        <!--Image Container-->
+                        <div class="gameGalleryDiv">
+                            <img src="Assets/Code Vein/gameimage1.jpg" alt="" width="100%" height="100%">
+                            <h2>Cover Image</h2>
+                        </div>
+
+                        <!--Game Title-->
+                        <h1>Code Vein</h1>
+
+                        <!--Synopsis Container-->
+                        <div class="gameSynopsisDiv">
+                            <p class="gameSynopsis">In the not too distant future, a mysterious disaster has brought collapse to the world as we know it. Towering skyscrapers, once symbols of prosperity, are now lifeless graves of humanity's past pierced by the Thorns of Judgment. At the center of the destruction lies a hidden society of Revenants called Vein. This final stronghold is where the remaining few fights to survive, blessed with Gifts of power in exchange for their memories and a thirst for blood. Give in to the bloodlust fully and risk becoming one of the Lost, fiendish ghouls devoid of any remaining humanity. Wandering aimlessly in search of blood, the Lost will stop at nothing to satisfy their hunger. Team up and embark on a journey to the ends of hell to unlock your past and escape your living nightmare in CODE VEIN.</p>
+                        </div>
+                    </div>
+                    <iframe frameborder="0" src="https://player.vimeo.com/video/362639477?background=true&amp;autopause=0&amp;loop=1" style="width: 100%; height: 100%;"></iframe>
+                </div>
+                
+                <!--Persona 5 Container (Game)-->
+                <div class="gameContentContainer">
+                    <div class="gameDiv">
+
+                        <!--Image Container-->
+                        <div class="gameGalleryDiv">
+                            <img src="Assets/Persona 5/gameimage1.jpg" alt="" width="100%" height="100%">
+                            <h2>Cover Image</h2>
+                        </div>
+
+                        <!--Game Title-->
+                        <h1>Persona 5</h1>
+
+                        <!--Synopsis Container-->
+                        <div class="gameSynopsisDiv">
+                            <p class="gameSynopsis">Persona 5 is a fantasy based on reality which follows a group of troubled high school students: the protagonist and a collection of compatriots he meets along the way. These disturbed and troubled teenagers gradually realize that they are living in a toxic and dangerous world resembling a prison full of slavery, oppression and injustice, ruled by corrupted and twisted adults. They can't live with the system and can't live without it, and simply existing means they are at risk of being doomed and condemned to a life of slavery. In order to seek freedom, liberation and justice, they live dual lives as rebellious Phantom Thieves of Hearts. Using a mysterious smartphone app, they undertake fantastical adventures by using otherworldly powers to enter the hearts of people (specifically, corrupt adults in positions of power).</p>
+                        </div>
+                        <img id="personaHeader" src="Assets/Persona 5/header.png" alt="" width="100%" height="100%">
+                    </div>
+                    <iframe frameborder="0" src="https://www.youtube.com/embed/QnDzJ9KzuV4?start=8&autoplay=1&hd=1&mute=1&loop=1&playlist=QnDzJ9KzuV4" style="width: 100%; height: 100%;" allow="autoplay"></iframe>
+                </div>
+
+                <!--Steins;Gate Container (Game)-->
+                <div class="gameContentContainer">
+                    <div class="gameDiv">
+
+                        <!--Image Container-->
+                        <div class="gameGalleryDiv">
+                            <img src="Assets/Steins Gate/gameimage1.jpg" alt="" width="100%" height="100%">
+                            <h2>Cover Image</h2>
+                        </div>
+
+                        <!--Game Title-->
+                        <h1>Steins Gate</h1>
+
+                        <!--Synopsis Container-->
+                        <div class="gameSynopsisDiv">
+                            <p class="gameSynopsis">The self-proclaimed mad scientist Rintarou Okabe rents out a room in a rickety old building in Akihabara, where he indulges himself in his hobby of inventing prospective "future gadgets" with fellow lab members: Mayuri Shiina, his air-headed childhood friend, and Hashida Itaru, a perverted hacker nicknamed "Daru." The three pass the time by tinkering with their most promising contraption yet, a machine dubbed the "Phone Microwave," which performs the strange function of morphing bananas into piles of green gel. Though miraculous in itself, the phenomenon doesn't provide anything concrete in Okabe's search for a scientific breakthrough; that is, until the lab members are spurred into action by a string of mysterious happenings before stumbling upon an unexpected success.</p>
+                        </div>
+                    </div>
+                    <iframe frameborder="0" src="https://www.youtube.com/embed/dd7BILZcYAY?start=8&autoplay=1&hd=1&mute=1&loop=1&playlist=dd7BILZcYAY" style="width: 100%; height: 100%;" allow="autoplay"></iframe>
+                </div>
+
+                <!--Scarlet Nexus Container (Game)-->
+                <div class="gameContentContainer">
+                    <div class="gameDiv">
+                        <!--Image Container-->
+                        <div class="gameGalleryDiv">
+                            <img src="Assets/Scarlet Nexus/gameimage1.png" alt="" width="100%" height="100%">
+                            <h2>Cover Image</h2>
+                        </div>
+
+                        <!--Game Title-->
+                        <h1>Scarlet Nexus</h1>
+
+                        <!--Synopsis Container-->
+                        <div class="gameSynopsisDiv">
+                            <p class="gameSynopsis">In a far distant future, a psionic hormone was discovered in the human brain, granting people extra-sensory powers and changing the world as we know it. Just as humanity was entering this new era, deranged mutants known as Others began to descend from the sky with a thirst for human brains. Highly resistant to conventional attack methods, extreme measures needed to be taken to battle the overwhelming threat and preserve humanity. Those with acute extra-sensory abilities, known as psionics, were our chance to fight the onslaught from above. To this day, psionics have been scouted for their talents and recruited to the Other Suppression Force (OSF), humanity’s last line of defense. Take on the role of Yuito Sumeragi, a new recruit to the OSF aiming to become an elite psionic like the one who saved him.</p>
+                        </div>
+                    </div>
+                    <iframe frameborder="0" src="https://www.youtube.com/embed/nOumLAM7ByI?start=8&autoplay=1&hd=1&mute=1&loop=1&playlist=nOumLAM7ByI" style="width: 100%; height: 100%;" allow="autoplay;"></iframe>
+                </div>
+                
+            </div>
+        </div>
+
+        <!--Next and Previous Arrow Buttons-->
+		<img id="previous" src="Assets/next.png" onclick="previous()">
+		<img id="next" src="Assets/next.png" onclick="next()">
+    </main>
+
+    <!--Footer-->
+    <footer style="margin-top: 0px;">
+        <!--Accessability-->
+        <div id="accessabilityDiv">
+            <label for="lightModeCheckbox" id="lightModeLabel"> Light Mode
+                <input type="checkbox" id="lightModeCheckbox" onchange="lightMode()">
+            </label>
+        </div>
+
+        <!--Copyright-->
+        <p>Ⓒ2021 MyTopAnime</p>
+
+        <!--Socials-->
+        <div id="socialMediaDiv">
+            <a href="https://en-gb.facebook.com/Anitrendz/"><img src="Assets/FacebookLogo.png" alt="" draggable="false"></a>
+            <a href="https://www.instagram.com/animes/?hl=en"><img src="Assets/Instagram.png" alt="" draggable="false"></a>
+            <a href="https://twitter.com/alltheanime?lang=en"><img id="twitterIcon" src="Assets/Twitter.png" alt="" draggable="false"></a>
+        </div>
+    </footer>
+
+    <!--JavaScript-->
+    <script src="index.js"></script>
+	<script src="Games.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css">
+	<style>
+		/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Main Content
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+		
+		#mainHome {
+			display: flex;
+			justify-content: space-between;
+			height: auto;
+			width: auto;
+			margin-left: auto;
+			margin-right: auto;
+			width: 1316px;
+			margin-top: 30px;
+		}
+
+		.mainLeft {
+			width: 965px;
+		}
+
+		.sideHome {
+			width: 330px;
+		}
+
+		/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Featured Banner
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+		
+		/*Container for the featured anime*/
+		.featuredDiv {
+			width: 100%;
+			height: 414px;
+			overflow: hidden;
+			border-radius: 10px;
+			box-shadow: 0 1.68px 3.36px hsla(0,0%,0%,50%);
+		}
+		
+		/*Container for the Title and the Caption*/
+		.featuredCaptionDiv {
+			position: relative;
+			width: 965px;
+			height:100px;
+			background-color:hsl(240, 75%, 60%);
+			border-radius: 0 0 10px 10px;
+			top: 302px;
+			z-index:2;
+			padding-left: 20px;
+		}
+		
+		/*Title for the featured anime*/
+		.featuredTitle {
+			position: relative;
+			color: white;
+			font-family: 'Sarabun', sans-serif;
+			font-weight: 700;
+			font-size: 27px;
+			top: 12px;
+			user-select: none;
+		}
+		
+		/*Description and Caption of the featured anime*/
+		.featuredDescription {
+			position: relative; 
+			color: white;
+			font-family: 'Sarabun', sans-serif;
+			font-size: 15px;
+			width: 70%;
+			bottom: 8px;
+			user-select: none;
+		}
+
+		.featuredLink {
+			position: relative;
+			bottom: 90px;
+			left: 720px;
+		}
+		
+		/*More Info button for the featured Anime*/
+		.featuredBtn {
+			position: relative;
+			width: 200px;
+			height: 70px;
+			bottom: 4px;
+			font-size: 25px;
+			border-radius: 30px;
+			font-family: 'Sarabun', sans-serif;
+			font-weight: 700;
+			color: black;
+			transition: 160ms cubic-bezier(.38,.32,.25,1);
+		} .featuredBtn:hover {/*Hover Effect for the featured button*/
+			transform: scale(1.1);
+			opacity: 0.5;
+			cursor:pointer;
+			color: black;
+			transition: all 160ms cubic-bezier(.38,.32,.25,1);
+		}
+		
+		/*Image of the featured Anime*/
+		.featuredImg {
+			position: relative;
+			max-width: 100%;
+			bottom: 120px;
+			transition: all 160ms cubic-bezier(.38,.32,.25,1);
+		} .featuredImg:hover {/*Hover effect where it increases the size when hovered over*/
+			transform: scale(1.1);
+			transition: all 160ms cubic-bezier(.38,.32,.25,1);
+		}
+
+		/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@New Releases Sidebar
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+		
+		/*Container for the new releases Anime*/
+		.newReleasesDiv {
+			display: flex;
+			flex-direction: column;
+			background-color: var(--titleBackground);
+			width: 100%;
+			border-radius: 10px;
+			box-shadow: 0 1.68px 3.36px hsla(0,0%,0%,50%);
+			overflow: hidden;
+		}
+
+		#newReleasesHeading {
+			font-family: 'Sarabun', sans-serif;
+			text-align: center;
+			color: var(--text);
+		}
+
+		.animeSidebarDiv {
+			height: 100px;
+			background-color: var(--divBackground);
+		}
+		
+		/*Container for the anime image*/
+		.sideAnimeImageDiv {
+			height: 100%;
+			width: 50px;
+			padding-left: 16.5px;
+			padding-top: 16.5px;
+			transition: transform .2s;
+		}
+		
+		/*Image of the new released anime*/
+		.sideAnimeImage {
+			max-height: 100%;
+			max-width: 100%;
+			transition: transform .2s;
+		}.sideAnimeImage:hover {/*Hover effect that increases the size when hovered over the image*/
+			transform: scale(1.6);
+		}
+		
+		/*The title of the anime*/
+		.animeSidebarTitle {
+			position: relative;
+			width: 200px;
+			bottom: 120px;
+			left: 90px;
+			font-family: 'Sarabun', sans-serif;
+			font-weight: 700;
+			color: var(--text);
+		}
+		
+		/*The rating of the anime*/
+        .animeSidebarRating {
+			position: relative;
+			width: 200px;
+			bottom: 130px;
+			left: 90px;
+			font-family: 'Sarabun', sans-serif;
+			font-weight: 700;
+			color: var(--text);
+		}
+	</style>
+	
+	<!--Website Title-->
+    <title>MyTopAnime - Home</title>
+</head>
+<body>
+    <!--Header-->
+    <header id="header">
+        <!--Icon-->
+        <a href="index.html" id="headerIcon">MyTopAnime.net</a>
+
+        <!--Buttons-->
+        <div id="headerDiv">
+            <ul id="navList">
+                <li><a href="Introduction.html" class="liStyle1" draggable="false">Introduction</a></li>
+                <li><a href="Trailers.html" class="liStyle1" draggable="false">Trailers</a></li>
+                <li><a href="History.html" class="liStyle1" draggable="false">History</a></li>
+				<li><a href="Games.html" class="liStyle1" draggable="false">Games</a></li>
+                <li><a href="About Us.html" class="aboutUsLink" draggable="false"><button draggable="false" class="aboutUsButton">About Us</button></a></li>
+                <li><a href="Contact Us.html" class="contactUsLink" draggable="false"><button draggable="false" class="contactUsButton">Contact Us</button></a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <!--Banner-->
+    <div class="bannerDiv">
+        <img src="Assets/Main panel.png" id="banner" draggable="false">
+        <div id="bannerGradientLine"></div>
+        <img src="Assets/MyTopAnime.png" id="bannerTitle" draggable="false">
+        <p id="bannerCatchphrase">The new promising anime platform</p>
+    </div>
+
+    <!--Page Content-->
+    <main id="mainHome">
+
+        <div class="mainLeft">
+
+            <!--Featured Anime Gallery-->
+            <div class="featuredDiv">
+                <div class="featuredCaptionDiv">
+                    <h1 class="featuredTitle">Attack on Titan Final Season</h1>
+                    <p class="featuredDescription">Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called titans, forcing humans to hide in fear behind enormous concentric walls. </p>
+                    <a href="https://myanimelist.net/anime/40028/Shingeki_no_Kyojin__The_Final_Season?q=final%20season&cat=anime" class="featuredLink" draggable="false"><button class="featuredBtn" draggable="false">More Info</button></a>
+                </div>
+                <img src="Assets/AoT.jpg" alt="" class="featuredImg">
+            </div>
+
+        </div>
+
+        <div class="sideHome">
+
+            <!--New Releases Container-->
+            <div class="newReleasesDiv">
+                <h2 id="newReleasesHeading">Top Airing Animes</h2>
+
+                <!--Fall 2021 Anime Container-->
+				<div id="newReleasesList">
+
+				</div>
+            </div>
+        </div>
+    </main>
+
+	<!--Footer-->
+    <footer>
+        <!--Accessability-->
+        <div id="accessabilityDiv">
+            <label for="lightModeCheckbox" id="lightModeLabel"> Light Mode
+                <input type="checkbox" id="lightModeCheckbox" onchange="lightMode()">
+            </label>
+        </div>
+
+        <!--Copyright-->
+        <p>Ⓒ2021 MyTopAnime</p>
+
+        <!--Socials-->
+        <div id="socialMediaDiv">
+            <a href="https://en-gb.facebook.com/Anitrendz/"><img src="Assets/FacebookLogo.png" alt="" draggable="false"></a>
+            <a href="https://www.instagram.com/animes/?hl=en"><img src="Assets/Instagram.png" alt="" draggable="false"></a>
+            <a href="https://twitter.com/alltheanime?lang=en"><img id="twitterIcon" src="Assets/Twitter.png" alt="" draggable="false"></a>
+        </div>
+    </footer>
+
+	<!--JavaScript-->
+    <script src="index.js"></script>
+	<script>
+        //Variables to store JSON
+        let anime;
+        let animeObj;
+
+        //API Request for top rated new anime
+        function seasonAnime(){
+            const request = new XMLHttpRequest();
+            const searchResults = document.getElementById("topAnimeDiv");
+			//API link
+            request.open('GET', 'https://api.jikan.moe/v3/top/anime/1/airing');
+
+            request.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                anime = JSON.parse(this.response);
+                animeObj = anime.top
+				
+				//Caps the list of the anime to 6
+                anime.top.length = 6;
+				
+				//updates the page with the list
+                update(animeObj)
+            }
+            };
+            request.send();
+        }
+
+        //Template for the anime list
+        function animeTemplate(animedata) {
+            return `
+                <div class="animeSidebarDiv">
+                    <div class="sideAnimeImageDiv">
+                        <img src="${animedata.image_url}" alt="" class="sideAnimeImage">
+                    </div>
+                    <p class="animeSidebarTitle">${animedata.title}</p>
+                    <p class="animeSidebarRating">Rating: ${animedata.score}</p>
+                </div>
+
+            `
+        }
+
+        //Creates list using the template
+        function update(animedata){ 
+            document.getElementById("newReleasesList").innerHTML = `
+            ${animedata.map(animeTemplate).join("")}
+            `
+        }
+
+		//Automatically requests the Top 6 Airing Anime when the page loads
+        seasonAnime()
+	</script>
+</body>
+</html>

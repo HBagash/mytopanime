@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css">
+	<style>
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Main Content
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+        #mainHome {
+            background-color: var(--divBackground);
+            padding-right: 15px;
+            padding-left: 15px;
+			height: auto;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 100%;
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+			@Navigation (Sort Filter)
+		\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        #topDiv {
+            width: 100%;
+            height:60px;
+        }
+
+        #animeSort {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 20px;
+            font-size: 28px;
+            color: var(--text);
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        /*Class for the different sorting options in the navigation*/
+        .animeSortItems {
+            padding-left: 15px;
+            padding-right: 15px;
+            user-select: none;
+			opacity: 0;
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+        } .animeSortItems:hover { /*Hover effect to change text colour to purple when hovered over*/
+            cursor:pointer;
+            color: hsl(240, 75%, 77%);
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+        }
+		
+		#sortAll {
+			transform: translate(0px, 20px);
+			transition: 1s;
+		}
+		#sortPopular {
+			transform: translate(0px, 20px);
+			transition: 1s;
+		}
+		#sortAiring {
+			transform: translate(0px, 20px);
+			transition: 1s;
+		}
+		#sortUpcoming {
+			transform: translate(0px, 20px);
+			transition: 1s;
+		}
+        #sortFavourite {
+			transform: translate(0px, 20px);
+			transition: 1s;
+		}
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+          @Anime
+        \*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+        
+        #mainCenter {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-right: 5px;
+            bottom: 50px;
+            transition: 1s;
+        }
+
+        /*Anime card container*/
+        .animeContainerDiv {
+            height: 285px;
+            width: 190px;
+            margin-right: 12.5px;
+            margin-left: 12.5px;
+            margin-bottom: 25px;
+            border-radius: 6px;
+            overflow: hidden;
+			opacity: 0;
+            box-shadow: 0 1.68px 3.36px hsla(0,0%,0%,50%);
+			transform: translate(-50px, 0px);
+            transition: 1s;
+        } .animeContainerDiv:hover {
+            transition: 0.3s;
+            transform:scale(1.1);
+        }
+
+        /*Anime image container*/
+        .animeImageDiv{
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+        }
+
+        /*Anime image*/
+        .animeImage {
+            width: 100%;
+            height: 100%;
+            opacity: 0.35;
+            transition: 0.3s;
+        }.animeImage:hover { /*Increases size of image by 1.1x when hovered over*/
+            transition: 0.3s;
+            transform:scale(1.1);
+            cursor: pointer;
+        }
+
+        /*Anime rank text*/
+        .animeRank {
+			position: relative;
+            text-shadow: -0.6px 0.84px 1.68px #000;
+            line-height: 15px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 13px;
+            bottom: 285px;
+			left: 15px;
+			opacity: 0.3;
+        } .animeRank:hover {
+            cursor: pointer;
+        }
+        
+        .animeDescriptionDiv{
+            position: relative;
+            width: 100% - 20px;
+            min-height: 55px;
+            background-color: #1c1c1d;
+            opacity: 0.8;
+            padding-left: 10px;
+			padding-right: 10px;
+			bottom: 95px;
+        }
+
+        /*Anime title container*/
+        .animeTitleDiv{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            height: 36px;
+            width: 140px;
+        }
+
+        /*Anime title text*/
+        .animeTitle {
+            position: relative;
+            text-shadow: -0.6px 0.84px 1.68px #000;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 12px;
+            text-decoration: none;
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+        } .animeTitle:hover{
+            border-color: hsl(240, 17%, 34%);
+            cursor:pointer;
+            color: hsl(240, 75%, 77%);
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+        }
+
+        /*Anime rating text*/
+        .animeScore {
+            position: relative;
+            text-shadow: -0.6px 0.84px 1.68px #000;
+            line-height: 15px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 11px;
+            bottom: 10px;
+        }
+        
+        /*Number of episodes text*/
+        .animeEpisodes {
+            position: relative;
+            text-shadow: -0.6px 0.84px 1.68px #000;
+            line-height: 15px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            color: white;
+            opacity: 0.6;
+            font-size: 11px;
+            bottom: 48px;
+            float: right;
+        }
+
+        /*Favourite button*/
+        .favouriteImage {
+            position: relative;
+            bottom: 160px;
+            left: 164px;
+            height: 15px;
+            width: 15px;
+            z-index: 50;
+            transition: 0.3s;
+        } .favouriteImage {/*Favourite button hover effect (cursor turns into a pointer)*/
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        /*Play icon container*/
+        .playButtonDiv {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 0;
+            height: 0;
+            bottom: 465px;
+        }
+
+        /*Play Icon*/
+        .playButton {
+            position: relative;
+            width: 0px;
+            height: 0px;
+            top: 180px;
+            left: 95px;
+            transition: 0.3s;
+        } .playButton:hover {
+            transition: 0.3s;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+          @Search Box
+        \*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        #Search-Box-Div {
+            opacity: 0;
+            transform: translate(40px, 0px);
+			transition: 1s;
+        }
+
+        #search-box{
+            position: relative;
+            right: 12px;
+            height: 32px;
+            font-size: 0;
+            background: linear-gradient(45deg,hsl(240, 3%, 16%) calc(100% - 20px),hsla(240, 100%, 94%, 4%) 0) hsl(240, 3%, 16%);
+            border: 2px solid hsl(240, 3%, 16%);
+            border-radius: 3px;
+            font: normal 14px/26px "Sarabun", "Segoe UI", "Arial", "FontAwesome", sans-serif;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            color: white;
+            transition: inherit;
+        }
+
+        #search-container {
+            position: relative;
+            float: right;
+            bottom: 80px;
+            padding-right: 75px;
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+        }
+
+        #Search-Icon{
+            position: relative;
+            left: 5px;
+            top: 5px;
+            width: 17px;
+            height: 17px;
+        }
+
+        #search-box{
+            margin-right: auto;
+        }
+
+        #search-box input{
+            position: relative;
+            background: 0 0;
+            padding: 2px 6px 2px 30px;
+            bottom: 27px;
+            color: hsla(0, 0%, 100%, 80%);
+            border: none;
+            line-height: 28px;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            width: 100%;
+            outline: none;
+        } #status-menu #search-container #search-box:focus-within, input:hover{
+            border-color: hsl(240, 17%, 34%);
+            color: hsl(240, 75%, 77%);
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+        }  
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+          @Videos
+        \*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        #videoDiv {
+            display: none;
+            position: fixed;
+            background-color: var(--background);
+            border-radius: 10px;
+
+            bottom: 0;
+            left: 0;
+            top: 8%;
+            right: 0;
+            margin: 0 auto;
+            
+            left: 0;
+            height: 90%;
+            width: 82%;
+            box-shadow: 0 1.68px 3.36px hsla(0,0%,0%,50%);
+            
+
+        }
+
+        /*Close trailer button*/
+        #closeVideo {
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            color: red;
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+            top: 10%;
+            right: 5%;
+            height: 50px;
+            width: 50px;
+            z-index: 50;
+            
+        }
+        #closeVideo:hover {/*Close trailer button hover effect*/
+            transition: all 160ms cubic-bezier(.38,.32,.25,1);
+            cursor: pointer;
+            opacity: 0.5;
+        }
+
+        #trailerContainer {
+            width: 100%;
+            height: 96%;
+            overflow: scroll;
+            overflow-x: hidden;
+            padding-top: 35px;
+        }
+
+        /* ===== Scrollbar CSS ===== */
+        /* Firefox */
+        #trailerContainer {
+            scrollbar-width: auto;
+            scrollbar-color: #5c5c5c #ffffff;
+        }
+
+        /* Chrome, Edge, and Safari */
+        #trailerContainer::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        #trailerContainer::-webkit-scrollbar-thumb {
+            background-color: #5c5c5c;
+            border-radius: 10px;
+        }
+
+        /*Trailer iframe*/
+        #animeTrailerVideo {
+            position: relative;
+            margin: 0 auto;
+            display: block;
+            height: 95%;
+            width: 95%;
+            border-radius: 10px;
+        }
+
+        /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+          @Trailer Information
+        \*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+        /*Trailer's description container*/
+        .trailerDescription {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        /*Trailer class Text*/
+        .trailerText {
+            font-family: 'Sarabun', sans-serif;
+            color: var(--text);
+        }
+
+        /*Anime Trailer Information Container*/
+        .trailerInformation {
+            float: left;
+            height: 100%;
+            padding-bottom: 50px;
+        }
+
+        /*Synopsis of the Anime Trailer*/
+        .trailerSynopsis {
+            position: relative;
+            float: right;
+            width: 80%;
+            bottom: 22px;
+        }
+	</style>
+    
+	<!--Website Title-->
+    <title>MyTopAnime - Trailers</title>
+</head>
+<body>
+    <!--Header-->
+    <header id="header">
+        <!--Icon-->
+        <a href="index.html" id="headerIcon">MyTopAnime.net</a>
+
+        <!--Buttons-->
+        <div id="headerDiv">
+            <ul id="navList">
+                <li><a href="Introduction.html" class="liStyle1" draggable="false">Introduction</a></li>
+                <li><a href="Trailers.html" class="liStyle1" draggable="false">Trailers</a></li>
+                <li><a href="History.html" class="liStyle1" draggable="false">History</a></li>
+                <li><a href="Games.html" class="liStyle1" draggable="false">Games</a></li>
+                <li><a href="About Us.html" class="aboutUsLink" draggable="false"><button draggable="false" class="aboutUsButton">About Us</button></a></li>
+                <li><a href="Contact Us.html" class="contactUsLink" draggable="false"><button draggable="false" class="contactUsButton">Contact Us</button></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!--Banner-->
+    <div class="bannerDiv">
+        <img src="Assets/Main panel.png" id="banner" draggable="false">
+        <div id="bannerGradientLine"></div>
+        <img src="Assets/MyTopAnime.png" id="bannerTitle" draggable="false">
+        <p id="bannerCatchphrase">The new promising anime platform</p>
+    </div>
+
+    <!--Page Content-->
+    <main id="mainHome">
+        <!--Search Box-->
+        <div id="topDiv">
+            <!--Sort Filter (Navigation List)-->
+            <div id="animeSort">
+                <p id="sortAll" class="animeSortItems" onclick="topAnime()" onmouseover="onMouseOverSort(this.id)" onmouseout="onMouseExitSort(this.id)">All</p>
+                <p id="sortPopular" class="animeSortItems" onclick="popularAnime()" onmouseover="onMouseOverSort(this.id)" onmouseout="onMouseExitSort(this.id)">Popular</p>
+                <p id="sortAiring" class="animeSortItems" onclick="airingAnime()" onmouseover="onMouseOverSort(this.id)" onmouseout="onMouseExitSort(this.id)">Airing</p>
+                <p id="sortUpcoming" class="animeSortItems" onclick="upcomingAnime()" onmouseover="onMouseOverSort(this.id)" onmouseout="onMouseExitSort(this.id)">Upcoming</p>
+                <p id="sortFavourite" class="animeSortItems" onclick="favouriteAnime()" onmouseover="onMouseOverSort(this.id)" onmouseout="onMouseExitSort(this.id)">Favourite</p>
+            </div>
+
+            <!--Search Bar-->
+            <div id="status-menu" class="status-menu-container">
+                <div id="Search-Box-Div">
+                    <form id="search-container">
+                        <div id="search-box">
+                            <img src="Assets/Search-Icon.png" alt="" id="Search-Icon" draggable="false">
+                            <input type="text" value="" placeholder="Search" name="search" id="searchInput">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+        <div id="mainCenter">
+            <!--Flex Container for Anime (Anime cards will be generated here)-->  
+        </div>
+        <div id="videoDiv">
+
+            <!--Exit button for the trailer-->
+            <div id="exitButton">
+                <img src="Assets/exit.svg" alt="" id="closeVideo" onclick="closeTrailer()">
+            </div>
+
+            <div id="trailerContainer">
+                <!--Trailers will be stored here-->
+                
+                <!--Trailers Description will be stored here-->
+
+            </div>
+
+        </div>
+    </main>
+
+    <!--Footer-->
+    <footer style="margin-top: 0px;">
+        <!--Accessability-->
+        <div id="accessabilityDiv">
+            <label for="lightModeCheckbox" id="lightModeLabel"> Light Mode
+                <input type="checkbox" id="lightModeCheckbox" onchange="lightMode()">
+            </label>
+        </div>
+
+        <!--Copyright-->
+        <p>Ⓒ2021 MyTopAnime</p>
+
+        <!--Socials-->
+        <div id="socialMediaDiv">
+            <a href="https://en-gb.facebook.com/Anitrendz/"><img src="Assets/FacebookLogo.png" alt="" draggable="false"></a>
+            <a href="https://www.instagram.com/animes/?hl=en"><img src="Assets/Instagram.png" alt="" draggable="false"></a>
+            <a href="https://twitter.com/alltheanime?lang=en"><img id="twitterIcon" src="Assets/Twitter.png" alt="" draggable="false"></a>
+        </div>
+    </footer>
+
+    <!--JavaScript-->
+    <script src="index.js"></script>
+    <script src="Trailers.js"></script>
+</body>
+</html>
