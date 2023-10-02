@@ -33,3 +33,15 @@ if (JSON.parse(userData) === null) {
     ];
     localStorage.setItem("userInformation", JSON.stringify(userInfo));
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    // Toggle the mobile menu when the menu button is clicked
+    menuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+    });
+});

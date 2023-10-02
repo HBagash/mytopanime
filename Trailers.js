@@ -38,14 +38,14 @@ function searchAnime(event){
     const query = form.get("search")
     const request = new XMLHttpRequest();
     const searchResults = document.getElementById("mainCenter");
-    request.open('GET', `https://api.jikan.moe/v3/search/anime?q=${query}&type=tv`);
+    request.open('GET', `https://api.jikan.moe/v4/anime?q=${query}&sfw`);
     
     request.onreadystatechange = function () {
     if (this.readyState === 4) {
         selectedSort = "none";
         anime = JSON.parse(this.response);
-        animeObj = anime.results;
-        animeObj.length = 40;
+        animeObj = anime.data;
+        animeObj.length = 24;
         highlight(sortType)
         update(animeObj)
     }
@@ -56,15 +56,15 @@ function searchAnime(event){
 function topAnime(){
     const request = new XMLHttpRequest();
     const sortType = "sortAll"
-    request.open('GET', 'https://api.jikan.moe/v3/top/anime');
+    request.open('GET', 'https://api.jikan.moe/v4/top/anime');
 
     request.onreadystatechange = function () {
     if (this.readyState === 4) {
         selectedSort = "sortAll";
         anime = JSON.parse(this.response);
-        animeObj = anime.top
-        anime.top.length = 40;
-        //console.log(animeObj)
+        animeObj = anime.data
+        anime.data.length = 24;
+        console.log(animeObj)
         highlight(sortType)
         update(animeObj)
     }
@@ -75,14 +75,15 @@ function topAnime(){
 function airingAnime(){
     const request = new XMLHttpRequest();
     const sortType = "sortAiring"
-    request.open('GET', 'https://api.jikan.moe/v3/top/anime/1/airing');
+    request.open('GET', 'https://api.jikan.moe/v4/top/anime?filter=airing&sfw');
 
     request.onreadystatechange = function () {
     if (this.readyState === 4) {
         selectedSort = "sortAiring";
         anime = JSON.parse(this.response);
-        animeObj = anime.top
-        anime.top.length = 40;
+        console.log(anime)
+        animeObj = anime.data
+        anime.data.length = 24;
         highlight(sortType)
         update(animeObj)
     }
@@ -93,14 +94,14 @@ function airingAnime(){
 function upcomingAnime(){
     const request = new XMLHttpRequest();
     const sortType = "sortUpcoming"
-    request.open('GET', 'https://api.jikan.moe/v3/top/anime/1/upcoming');
+    request.open('GET', 'https://api.jikan.moe/v4/top/anime?sfw&filter=upcoming');
 
     request.onreadystatechange = function () {
     if (this.readyState === 4) {
         selectedSort = "sortUpcoming"
         anime = JSON.parse(this.response);
-        animeObj = anime.top
-        anime.top.length = 40;
+        animeObj = anime.data
+        anime.data.length = 24;
         highlight(sortType)
         console.log(animeObj)
         update(animeObj)
@@ -112,16 +113,15 @@ function upcomingAnime(){
 function popularAnime(){
     const request = new XMLHttpRequest();
     const sortType = "sortPopular"
-    request.open('GET', 'https://api.jikan.moe/v3/search/anime?q=&order_by=members');
+    request.open('GET', 'https://api.jikan.moe/v4/anime?order_by=popularity');
 
     request.onreadystatechange = function () {
     if (this.readyState === 4) {
         selectedSort = "sortPopular";
         anime = JSON.parse(this.response);
 		
-        animeObj = anime.results;
+        animeObj = anime.data;
         //console.log(animeObj)
-        anime.results.length = 40;
         highlight(sortType)
         update(animeObj)
 		//console.log(animeObj)
@@ -176,7 +176,7 @@ function animeTemplate(animedata) {
         return `
         <div class="animeContainerDiv" id="${animedata.mal_id}" onmouseover="onMouseOverPlayButton(${animedata.mal_id})" onmouseout="onMouseOverExitPlayButton(${animedata.mal_id})">
             <div class="animeImageDiv" onmouseout="onMouseExitImage(${animedata.mal_id})" onmouseover="onMouseOverImage(${animedata.mal_id})" onclick="trailer(${animedata.mal_id})">
-                <img src="${animedata.image_url}" alt="" class="animeImage" id="image-${animedata.mal_id}">
+                <img src="${animedata.images.webp.image_url}" alt="" class="animeImage" id="image-${animedata.mal_id}">
             </div>
             <p class="animeRank" onmouseover="onMouseOverImage(${animedata.mal_id})">#${rankCounter}</p>
             <div class="animeDescriptionDiv">
@@ -204,12 +204,12 @@ function animeTemplate(animedata) {
 //Grabs anime's stats when the favourite button is clicked.
 function grabAnime(grabbedAnimeID){
     const request = new XMLHttpRequest();
-    request.open('GET', `https://api.jikan.moe/v3/anime/${grabbedAnimeID}`);
+    request.open('GET', `https://api.jikan.moe/v4/anime/${grabbedAnimeID}`);
 
     request.onreadystatechange = function () {
     if (this.readyState === 4) {
         anime = JSON.parse(this.response);
-        storeFavourite(anime)
+        storeFavourite(anime.data)
     }
     };
     request.send();
@@ -232,7 +232,7 @@ function storeFavourite(animedata){
         userData[userDataIndex].favouriteAnime.push({
             mal_id: animedata.mal_id,
             episodes: animedata.episodes,
-            image_url: animedata.image_url,
+            images: {webp: {image_url:animedata.images.webp.image_url}},
             score: animedata.score,
             title: animedata.title,
             url: animedata.url
@@ -377,17 +377,19 @@ function sortAnimationLoad() {
 function trailer(animeID) {
     let videoObj;
     const request = new XMLHttpRequest();
-    request.open('GET', `https://api.jikan.moe/v3/anime/${animeID}/videos`);
+    request.open('GET', `https://api.jikan.moe/v4/anime/${animeID}/videos`);
     selectedAnimeID = animeID;
+    console.log(animeID)
     request.onreadystatechange = function () {
     if (this.readyState === 4) {
         animeTrailer = JSON.parse(this.response);
-        videoObj = animeTrailer.promo;
+        videoObj = animeTrailer.data.promo;
+        console.log(animeTrailer)
         //Checks if there is a trailer available
-        if (animeTrailer.promo.length===0) {
+        if (animeTrailer.data.promo.length===0) {
             alert("This anime does not have any trailers.")
-        } else if (animeTrailer.promo.length>0){
-        animeTrailer.promo.length = 1;
+        } else if (animeTrailer.data.promo.length>0){
+        animeTrailer.data.promo.length = 1;
         trailerInformation(videoObj);
         document.getElementById("videoDiv").style.display = "flex";
         }
@@ -399,12 +401,12 @@ function trailer(animeID) {
 function trailerInformation(trailerObj) {
     let videoObj;
     const request = new XMLHttpRequest();
-    request.open('GET', `https://api.jikan.moe/v3/anime/${selectedAnimeID}`);
+    request.open('GET', `https://api.jikan.moe/v4/anime/${selectedAnimeID}`);
 
     request.onreadystatechange = function () {
     if (this.readyState === 4) {
         let animeTrailerInfo = JSON.parse(this.response);
-        videoObj = animeTrailerInfo;
+        videoObj = animeTrailerInfo.data;
         trailerInfo = videoObj;
         videoUpdate(trailerObj)
     }
@@ -414,7 +416,7 @@ function trailerInformation(trailerObj) {
 
 //Template for the trailer
 function videoTemplate(videodata) {
-    console.log(trailerInfo);
+    console.log(videodata);
 
     //Generates "Genres" string
     const genres = trailerInfo.genres;
@@ -431,7 +433,7 @@ function videoTemplate(videodata) {
     console.log(studioString)
 
     return `
-    <iframe id="animeTrailerVideo" width="560" height="315" src="${videodata.video_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe id="animeTrailerVideo" width="560" height="315" src="${videodata.trailer.embed_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                 <div class="trailerDescription">
                     <div class="trailerSynopsis">

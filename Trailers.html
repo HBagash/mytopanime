@@ -422,6 +422,133 @@
             width: 80%;
             bottom: 22px;
         }
+
+        @media (max-width: 1200px) {
+            #animesort {
+                font-size: 24px;
+            }
+            #sortAll {
+                font-size: 24px;
+            }
+            #sortPopular {
+                font-size: 24px;
+            }
+            #sortAiring {
+                font-size: 24px;
+            }
+            #sortUpcoming {
+                font-size: 24px;
+            }
+            #sortFavourite {
+                font-size: 24px;
+            }
+            #topDiv {
+                padding-top: 20px;
+            }
+            #status-menu {
+                padding-top: 60px;
+                position: relative;
+                float: left;
+                left: calc(50% - 85px);
+                
+            }
+            #topDiv {
+                
+            }
+        }
+
+        @media (max-width: 800px) {
+            #animesort {
+                font-size: 22px;
+            }
+            #sortAll {
+                font-size: 22px;
+            }
+            #sortPopular {
+                font-size: 22px;
+            }
+            #sortAiring {
+                font-size: 22px;
+            }
+            #sortUpcoming {
+                font-size: 22px;
+            }
+            #sortFavourite {
+                font-size: 22px;
+            }
+            #topDiv {
+                padding-top: 22px;
+            }
+            #status-menu {
+                padding-top: 60px;
+                position: relative;
+                float: left;
+                left: calc(50% - 85px);
+                
+            }
+            #topDiv {
+                
+            }
+        }
+
+        @media (max-width: 459px) {
+            #animesort {
+                font-size: 15px;
+            }
+            #sortAll {
+                font-size: 15px;
+            }
+            #sortPopular {
+                font-size: 15px;
+            }
+            #sortAiring {
+                font-size: 15px;
+            }
+            #sortUpcoming {
+                font-size: 15px;
+            }
+            #sortFavourite {
+                font-size: 15px;
+            }
+            #topDiv {
+                padding-top: 20px;
+            }
+            #status-menu {
+                padding-top: 70px;
+            }
+            .animeContainerDiv {
+                width: 134px;
+                height: 202px;
+            }
+            .animeTitle, .animeScore, .animeEpisodes{
+                font-size: 10px;
+            }
+
+            .playButtonDiv {
+                
+            }
+            .animeTitleDiv {
+                width: 100px;
+            }
+            .playButton {
+                top: 240px;
+                left:67px;
+            }
+            .favouriteImage {
+                left: 112px;
+                width: 13px;
+                height: 13px;
+            } .favouriteImage:hover{
+                transform: scale(1.1);
+            }
+
+            #trailerContainer {
+                width: 100%;
+                height:min-content;
+            }
+            
+
+        }
 	</style>
     
 	<!--Website Title-->
@@ -432,7 +559,10 @@
     <header id="header">
         <!--Icon-->
         <a href="index.html" id="headerIcon">MyTopAnime.net</a>
-
+        
+        <!--Box Icons Library-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        
         <!--Buttons-->
         <div id="headerDiv">
             <ul id="navList">
@@ -444,6 +574,21 @@
                 <li><a href="Contact Us.html" class="contactUsLink" draggable="false"><button draggable="false" class="contactUsButton">Contact Us</button></a></li>
             </ul>
         </div>
+
+        <!-- Mobile Menu -->
+		<nav id="mobile-menu">
+			<ul>
+				<li><a href="Introduction.html" class="liStyle1" draggable="false">Introduction</a></li>
+				<li><a href="Trailers.html" class="liStyle1" draggable="false">Trailers</a></li>
+				<li><a href="History.html" class="liStyle1" draggable="false">History</a></li>
+				<li><a href="Games.html" class="liStyle1" draggable="false">Games</a></li>
+				<li><a href="About Us.html" class="aboutUsLink" draggable="false"><button draggable="false" class="aboutUsButton">About Us</button></a></li>
+				<li><a href="Contact Us.html" class="contactUsLink" draggable="false"><button draggable="false" class="contactUsButton">Contact Us</button></a></li>
+			</ul>
+		</nav>
+
+        <!--Hamburger Menu-->
+        <div class="bx bx-menu" id="menu-button"></div>
     </header>
 
     <!--Banner-->

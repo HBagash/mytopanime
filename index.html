@@ -193,6 +193,9 @@
         <!--Icon-->
         <a href="index.html" id="headerIcon">MyTopAnime.net</a>
 
+		<!--Box Icons Library-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
         <!--Buttons-->
         <div id="headerDiv">
             <ul id="navList">
@@ -204,6 +207,20 @@
                 <li><a href="Contact Us.html" class="contactUsLink" draggable="false"><button draggable="false" class="contactUsButton">Contact Us</button></a></li>
             </ul>
         </div>
+		<!-- Mobile Menu -->
+		<nav id="mobile-menu">
+			<ul>
+				<li><a href="Introduction.html" class="liStyle1" draggable="false">Introduction</a></li>
+				<li><a href="Trailers.html" class="liStyle1" draggable="false">Trailers</a></li>
+				<li><a href="History.html" class="liStyle1" draggable="false">History</a></li>
+				<li><a href="Games.html" class="liStyle1" draggable="false">Games</a></li>
+				<li><a href="About Us.html" class="aboutUsLink" draggable="false"><button draggable="false" class="aboutUsButton">About Us</button></a></li>
+				<li><a href="Contact Us.html" class="contactUsLink" draggable="false"><button draggable="false" class="contactUsButton">Contact Us</button></a></li>
+			</ul>
+		</nav>
+
+		<!--Hamburger Menu-->
+        <div class="bx bx-menu" id="menu-button"></div>
     </header>
 
 
@@ -278,15 +295,15 @@
             const request = new XMLHttpRequest();
             const searchResults = document.getElementById("topAnimeDiv");
 			//API link
-            request.open('GET', 'https://api.jikan.moe/v3/top/anime/1/airing');
+            request.open('GET', 'https://api.jikan.moe/v4/top/anime?filter=airing&sfw');
 
             request.onreadystatechange = function () {
             if (this.readyState === 4) {
                 anime = JSON.parse(this.response);
-                animeObj = anime.top
+                animeObj = anime.data
 				
 				//Caps the list of the anime to 6
-                anime.top.length = 6;
+                anime.data.length = 6;
 				
 				//updates the page with the list
                 update(animeObj)
@@ -300,7 +317,7 @@
             return `
                 <div class="animeSidebarDiv">
                     <div class="sideAnimeImageDiv">
-                        <img src="${animedata.image_url}" alt="" class="sideAnimeImage">
+                        <img src="${animedata.images.webp.image_url}" alt="" class="sideAnimeImage">
                     </div>
                     <p class="animeSidebarTitle">${animedata.title}</p>
                     <p class="animeSidebarRating">Rating: ${animedata.score}</p>

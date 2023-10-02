@@ -286,17 +286,17 @@
             const request = new XMLHttpRequest();
             const searchResults = document.getElementById("topAnimeDiv");
 
-            request.open('GET', 'https://api.jikan.moe/v3/top/anime');
+            request.open('GET', 'https://api.jikan.moe/v4/top/anime');
 
             request.onreadystatechange = function () {
             if (this.readyState === 4) {
 				
 				//Turns the JSON from a string to an object
                 anime = JSON.parse(this.response);
-                animeObj = anime.top
+                animeObj = anime.data
 				
 				//Limits the results to 22
-                anime.top.length = 22;
+                anime.data.length = 22;
 				
 				//Updates the page with the results
                 update(animeObj)
@@ -310,7 +310,7 @@
             return `
                 <div class="animeSidebarDiv">
                     <div class="sideAnimeImageDiv">
-                        <img src="${animedata.image_url}" alt="" class="sideAnimeImage">
+                        <img src="${animedata.images.webp.image_url}" alt="" class="sideAnimeImage">
                     </div>
                     <p class="animeSidebarTitle">${animedata.title}</p>
                     <p class="animeSidebarRating">Rating: ${animedata.score}</p>

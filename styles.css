@@ -58,6 +58,15 @@ body {
     margin-right: -6px;
 }
 
+#mobile-menu{
+    display:none;
+    position: absolute;
+}
+
+#menu-button {
+    display:none;
+    position: absolute;
+}
 /*Removes bullet points from the list*/
 #headerDiv ul {
     list-style: none;
@@ -197,6 +206,10 @@ body {
     background: linear-gradient(to right,hsla(240, 75%, 77%,1),hsla(240, 75%, 77%,.55)) hsl(240, 3%, 9%);
 }
 
+main {
+    overflow: hidden;
+}
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
     @Footer
 \*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
@@ -253,4 +266,87 @@ footer div img {
     right: 4px;
     height: 38px;
     width: 38px;
+}
+
+@media (max-width: 900px) {
+    /* Mobile Menu Styles */
+    /* Styles for the mobile menu */
+    #menu-button {
+        color: white;
+        display: block;
+        font-size: 40px;
+        position: relative;
+        cursor: pointer;
+        top: 3px;
+        float: right;
+        padding-right: 25px;
+        transition: 0.2s;
+    } #menu-button:hover{
+        color: hsl(240, 75%, 77%);
+        transition: 0.2s;
+    }
+    #mobile-menu {
+        display: block; /* Initially, the menu is always displayed */
+        position: absolute;
+        top: 62px; /* Adjust as needed to position the menu below the header */
+        right: 0;
+        width: 100%;
+        background-color: var(--background); /* Use your background color */
+        z-index: 101; /* Ensure it's above other content */
+        transform: translateY(-115%); /* Initially, move it off-screen */
+        transition: transform 0.3s ease-in-out; /* Add smooth animation for sliding */
+        display: flex; /* Add flex display */
+        flex-direction: column; /* Stack menu items vertically */
+        justify-content: center; /* Vertically center-align items */
+        align-items: center; /* Horizontally center-align items */
+    }
+
+    /* Styles for the mobile menu items */
+    #mobile-menu ul {
+        list-style: none; /* Remove bullet points */
+        padding: 0;
+    }
+    #mobile-menu ul li {
+        padding: 10px;
+        /* Add your other styles for menu items here */
+        margin-top: 10px; /* Add margin at the top to create space between buttons */
+        text-align: center; /* Center-align text */
+    }
+
+    /* Styles to make the mobile menu visible when active */
+    #mobile-menu.active {
+        transform: translateY(0); /* Bring it on-screen when active */
+    }
+
+    #headerDiv {
+        display: none;
+    }
+
+    #header {
+        position: relative;
+        width: 100%;
+        height: 42px;
+        background-color: #1c1c1d;
+        box-shadow: 0 1.68px 3.36px hsla(0,0%,0%,50%);
+        z-index: 100;
+        overflow: visible;
+    }
+
+    #bannerCatchphrase {
+        font-size: 28px;
+        bottom: 80%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    #headerIcon {
+        top: 19px;
+        background:url(Assets/MTA-Icon.png) left 4px / auto 22px no-repeat;
+        width: 48px;
+    }
 }

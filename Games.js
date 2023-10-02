@@ -102,7 +102,7 @@ function gameAnimationLoad() {
     setTimeout(() => {document.getElementById("steinsGate").style.transform = "translate(0px, 0px)"}, 100);
     setTimeout(() => {document.getElementById("scarletNexus").style.transform = "translate(0px, 0px)"}, 100);
     setTimeout(() => {document.getElementById("gamesDivContainer").style.transform = "translate(0px)"}, 100);
-    
+     
     setTimeout(() => {document.getElementById("codeVein").style.opacity = "1"}, 100);
     setTimeout(() => {document.getElementById("persona5").style.opacity = "1"}, 100);
     setTimeout(() => {document.getElementById("steinsGate").style.opacity = "1"}, 100);
